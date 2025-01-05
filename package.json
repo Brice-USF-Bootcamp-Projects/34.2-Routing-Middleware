@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Brice-USF-Bootcamp-Projects/34.2-Routing-Middleware#readme",
   "dependencies": {
     "@faker-js/faker": "^9.3.0",
+    "body-parser": "^1.20.3",
     "express": "^4.21.2"
   }
 }
