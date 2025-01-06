@@ -19,9 +19,10 @@ app.use((req, res, next) => {
 // Error handler middleware
 app.use((err, req, res, next) => {
   const status = err.status || 500;
-  const message = err.message || 'Internal Server Error';
-  res.status(status).json({ error: message });
+  const message = err.msg || 'Internal Server Error';
+  res.status(status).json({ error: { message } });
 });
+
 
 // Export the app for testing
 module.exports = app;

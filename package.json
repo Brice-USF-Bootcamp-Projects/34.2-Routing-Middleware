@@ -1,17 +1,17 @@
 {
   "name": "34.2_routing_middleware",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Brice-USF-Bootcamp-Projects/34.2-Routing-Middleware.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "brice nelson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Brice-USF-Bootcamp-Projects/34.2-Routing-Middleware/issues"
@@ -25,5 +25,9 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "supertest": "^7.0.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "description": ""
 }
