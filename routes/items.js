@@ -54,3 +54,53 @@ router.post('/', (req, res, next) => {
     next(err); // Pass errors to the error-handling middleware
   }
 });
+
+
+router.patch('/:name', (req, res, next) => {
+  try {
+    const { name } = req.params; // Get the name from the URL params
+    const { name: newName, price: newPrice } = req.body; // Extract the new name and price
+
+    // Find the item in the array
+    const foundItem = items.find(item => item.name === name);
+
+    // Validate that the item exists
+    if (!foundItem) {
+      throw new ExpressError(`Item with name '${name}' not found`, 404);
+    }
+
+    // Update the item's name and/or price
+    if (newName) foundItem.name = newName;
+    if (newPrice) foundItem.price = newPrice;
+
+    // Respond with the updated item
+    res.json({ updated: foundItem });
+  } catch (err) {
+    next(err); // Pass errors to error-handling middleware
+  }
+});
+
+
+router.delete('/:name', (req, res, next) => {
+  try {
+    const { name } = req.params; // Get the name from the URL params
+
+    // Find the index of the item in the array
+    const itemIndex = items.findIndex(item => item.name === name);
+
+    // Validate that the item exists
+    if (itemIndex === -1) {
+      throw new ExpressError(`Item with name '${name}' not found`, 404);
+    }
+
+    // Remove the item from the array
+    items.splice(itemIndex, 1);
+
+    // Respond with a success message
+    res.json({ message: 'Deleted' });
+  } catch (err) {
+    next(err); // Pass errors to error-handling middleware
+  }
+});
+
+
